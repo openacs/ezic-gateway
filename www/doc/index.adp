@@ -6,7 +6,7 @@
     <property name="context_bar"><table width="100%"><tbody><tr><td align="left">@context_bar;noquote@</td><td align="right">[ <a href="@package_url@admin/">Administer</a> ]</td></tr> </tbody></table></property>
   </if>
   <else>
-    <property name="context_bar">@context_bar@</property>
+    <property name="context_bar">@context_bar;noquote@</property>
   </else>
 
 <h2>Description</h2>
