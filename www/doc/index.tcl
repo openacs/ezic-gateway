@@ -16,7 +16,7 @@ ad_page_contract {
 
 # Authenticate the user
 
-set user_id [ad_maybe_redirect_for_registration]
+set user_id [auth::require_login]
 
 set package_name "EZIC Gateway"
 set title "$package_name Package Documentation"
