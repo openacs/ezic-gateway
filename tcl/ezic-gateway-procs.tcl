@@ -13,22 +13,6 @@ ad_library {
     # D: duplicate (making this an error)
     #  : (3) error (no ezic gateway equivalent)
 
-    # AVS_codes - ezic gateway response values
-    #
-    # DFJMQVXY:  Address and ZIP code match 
-    # LWZ:  ZIP code match, address is wrong . . . 
-    # ABOP: address match, ZIP code is wrong 
-    # KN:   No match, address and ZIP is wrong 
-    # U:    No data from issuer/banknet switch
-    # R:    System unable to process 
-    # S:    Issuing bank does not support AVS 
-    # E:    Error, AVS not supported for your business . . .
-    # C:   (Int'l) Invalid address and ZIP format
-    # I:   (Int'l) Address not verifiable
-    # G:   (Int'l) Global non-verifiable address
-    # ?:   Unrecognized code (none of the above) 
-    # _:   No AVS data (_ means <null character>)
-
     # CVV2_codes - ezic gateway response field values
     #
     # M:  CVV2 match
@@ -1071,5 +1055,45 @@ ad_proc -private ezic_gateway.log_results {
 	(:transaction_id, :txn_attempted_time, :txn_attempted_type, :response, :response_code, :response_reason_code, :response_reason_text, :auth_code, :avs_code, :cvv2_code, :ticket_code, :amount)"} errmsg] {
         ns_log Error "Was not able to insert into ezic_gateway_result_log for transaction_id ${transaction_id}; error was ${errmsg}"
     }
+}
 
+ad_proc -private ezic_gateway.expand_avs {
+    {avs_code ""}
+} {
+    Convert AVS code to text response.
+
+    @creation-date September 2008
+} {
+    # this is not going into a db table because this data rarely changes, the package is a service, and the only access should be via the api anyway.
+    switch -exact -- $avs_code {
+        D -
+        F -
+        J -
+        M -
+        Q -
+        V -
+        X -
+        Y { set avs_text "Address and ZIP code match" }
+        L -
+        W -
+        Z { set avs_text "ZIP code matches, address does not" }
+        A -
+        B -
+        O -
+        P { set avs_text "Address matches, ZIP code does not" }
+        K -
+        N { set avs_text "No Match on Address (Street) or ZIP" }
+        U { set avs_text "No data from issuer / bank network" }
+        R { set avs_text "Retry - System unavailable or timed out" }
+        S { set avs_text "Service not supported by issuer" }
+        E { set avs_text "Error, AVS not supported for your business." }
+        C { set avs_text "(Int'l) Invalid address and ZIP format" }
+        I { set avs_text "(Int'l) Address not verifiable" }
+        G { set avs_text "(Int'l) Global non-verifiable address" }
+        default { set avs_text "Unrecognized code or no AVS data available" }
+    }
+    # default covers:
+    # ?:   Unrecognized code (none of the above) 
+    # _:   No AVS data (_ means <null character>)
+    return $avs_text
 }
