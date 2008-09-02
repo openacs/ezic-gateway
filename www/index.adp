@@ -1,10 +1,11 @@
 <master>
-  <property name="title">@title@</property>
-  <if @admin_p@ eq 1>
-    <property name="context_bar"><table width="100%"><tbody><tr><td align="left">@context_bar;noquote@</td><td align="right">[ <a href="admin/">Administer</a> ]</td></tr></tbody></table></property>
-  </if> 
-  <else>
-    <property name="context_bar">@context_bar@</property>
-  </else>
+  <property name="doc(title)">@title;noquote@</property>
+  <property name="context">@context;noquote@</property>
+<h2>@title@</h2>
 
   <p>This package has no user pages.</p>
+  <if @admin_p@ eq 1>
+<p><a href="admin/">Administer</a></p>
+  </if> 
+
+
