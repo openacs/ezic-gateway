@@ -7,7 +7,7 @@
     <initial-install-p>f</initial-install-p>
     <singleton-p>t</singleton-p>
 
-    <version name="5.01" url="http://openacs.org/repository/download/apm/ezic-gateway-5.0.apm">
+    <version name="5.01" url="http://openacs.org/repository/download/apm/ezic-gateway-5.01.apm">
     <database-support>
         <database>oracle</database>
         <database>postgresql</database>
@@ -16,7 +16,7 @@
         <summary>EZIC merchant payment gateway package</summary>
         <release-date>2004-02-02</release-date>
         <maturity>0</maturity>
-        <description format="text/html">Package that manages communication between openacs and the EZIC merchant payment gateway. Requires an account with EZIC and a merchant credit card fulfillment account.</description>
+        <description format="text/html">Package that manages communication between openacs and the EZIC merchant payment gateway. Requires an account with EZIC and a merchant credit card fulfillment account. This version works with ecommerce version 5.12 and above.</description>
 
         <requires url="payment-gateway" version="4.6"/>
 
