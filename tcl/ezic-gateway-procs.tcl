@@ -58,6 +58,7 @@ ad_proc -private ezic_gateway.authorize {
     card_number
     card_exp_month
     card_exp_year
+    card_code
     card_name
     billing_street
     billing_city
@@ -214,6 +215,7 @@ ad_proc -public ezic_gateway.chargecard {
     card_number
     card_exp_month
     card_exp_year
+    card_code
     card_name
     billing_street
     billing_city
@@ -260,6 +262,7 @@ ad_proc -public ezic_gateway.return {
     card_number
     card_exp_month
     card_exp_year
+    card_code
     card_name
     billing_street
     billing_city
@@ -416,6 +419,7 @@ ad_proc -public ezic_gateway.void {
     card_number
     card_exp_month
     card_exp_year
+    card_code
     card_name
     billing_street
     billing_city
@@ -754,6 +758,7 @@ ad_proc -private ezic_gateway.authcapture {
     card_number
     card_exp_month
     card_exp_year
+    card_code
     card_name
     billing_street
     billing_city
