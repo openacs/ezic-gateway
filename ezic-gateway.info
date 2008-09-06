@@ -18,7 +18,7 @@
         <maturity>0</maturity>
         <description format="text/html">Package that manages communication between openacs and the EZIC merchant payment gateway. Requires an account with EZIC and a merchant credit card fulfillment account. This version works with ecommerce version 5.12 and above.</description>
 
-        <requires url="payment-gateway" version="4.6"/>
+        <requires url="payment-gateway" version="5.01"/>
 
         <files>
             <file type="package_spec" path="ezic-gateway.info"/>
