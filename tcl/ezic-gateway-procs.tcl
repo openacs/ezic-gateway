@@ -224,12 +224,12 @@ ad_proc -public ezic_gateway.chargecard {
     billing_country
 } {
     ChargeCard is a wrapper so we can present a consistent interface to
-    the caller.  It will just pass on it's parameters to 
-    ezic_gateway.postauth or ezic_gateway.authcapture, 
-    whichever is appropriate for the implementation at hand. 
+    the caller.  It will just pass on its parameters to
+    ezic_gateway.postauth or ezic_gateway.authcapture,
+    whichever is appropriate for the implementation at hand.
 
-    PostAuth is used when there is a successful authorize transaction in 
-    the ezic_gateway_result_log for transaction_id. AuthCapture will 
+    PostAuth is used when there is a successful authorize transaction in
+    the ezic_gateway_result_log for transaction_id. AuthCapture will
     be used if there is no prior authorize transaction in the log.
 
     @author Bart Teeuwisse <bart.teeuwisse@thecodemill.biz>
