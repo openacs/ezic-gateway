@@ -8,7 +8,7 @@ ad_library {
     #    (authorize.net equivalent response_code)
     #
     # 1: (1) successful/approved
-    # T: (1) sucessful Auth-Only
+    # T: (1) successful Auth-Only
     # 0: (2) failure/declined
     # D: duplicate (making this an error)
     #  : (3) error (no ezic gateway equivalent)
@@ -34,7 +34,7 @@ ad_library {
     # R: (VOID) refund, refund back money from a prior sale.
     # D: (PRIOR_AUTH_CAPTURE) capture a prior (A) authorization, making i a Sale
     #  : (CAPTURE_ONLY) no ezic gateway equivalent
- 
+
     # EZIC gateway separates billing last name from billing first name
     # The authorize.net package uses a combined $card_name
     # ecommerce and payment-gateway packages need similarly adapted.
