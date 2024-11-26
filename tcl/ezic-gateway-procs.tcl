@@ -91,7 +91,7 @@ ad_proc -private ezic_gateway.authorize {
 
     # Add the Referer to the headers passed on to EZIC
 
-    set header [ns_set new]
+    set header [ns_set create]
     ns_set put $header Referer $referer_url
 
     # Compile the URL for the GET communication with EZIC
@@ -297,7 +297,7 @@ ad_proc -public ezic_gateway.return {
 
     # Add the Referer to the headers passed on to EZIC.com
 
-    set header [ns_set new]
+    set header [ns_set create]
     ns_set put $header Referer $referer_url
 
     if {[string length $card_number] < 2} {
@@ -453,7 +453,7 @@ ad_proc -public ezic_gateway.void {
 
     # Add the Referer to the headers passed on to EZIC.com
 
-    set header [ns_set new]
+    set header [ns_set create]
     ns_set put $header Referer $referer_url
 
     if {[string length $card_number] < 2} {
@@ -632,7 +632,7 @@ ad_proc -private ezic_gateway.postauth {
 
     # Add the Referer to the headers passed on to EZIC gateway
 
-    set header [ns_set new]
+    set header [ns_set create]
     ns_set put $header Referer $referer_url
 
     if {[string length $card_number] < 2} {
@@ -791,7 +791,7 @@ ad_proc -private ezic_gateway.authcapture {
 
     # Add the Referer to the headers passed on to EZIC gateway
 
-    set header [ns_set new]
+    set header [ns_set create]
     ns_set put $header Referer $referer_url
 
     # Compile the URL for the GET communication with EZIC gateway
